@@ -4,6 +4,7 @@
         <class>com.qphuc.entity.NewEntity</class>
         <class>com.qphuc.entity.UserEntity</class>
         <class>com.qphuc.entity.RoleEntity</class>
+        <class>com.qphuc.entity.CategoryEntity</class>
     </persistence-unit>
 </persistence>
 
