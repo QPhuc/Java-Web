@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "role")
+@Table(name = "category")
 public class CategoryEntity extends BaseEntity {
 
 	@Column(name = "name")
@@ -18,7 +18,7 @@ public class CategoryEntity extends BaseEntity {
 	@Column(name = "code")
 	private String code;
 
-	@OneToMany(mappedBy = "post")
+	@OneToMany(mappedBy = "category")
 	private List<NewEntity> news = new ArrayList<>();
 
 	public String getName() {
@@ -37,4 +37,13 @@ public class CategoryEntity extends BaseEntity {
 		this.code = code;
 	}
 
+	public List<NewEntity> getNews() {
+		return news;
+	}
+
+	public void setNews(List<NewEntity> news) {
+		this.news = news;
+	}
+
+	
 }
