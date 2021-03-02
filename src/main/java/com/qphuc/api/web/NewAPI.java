@@ -11,18 +11,15 @@ import com.qphuc.dto.NewDTO;
 @RestController(value = "newAPIOfWeb")
 public class NewAPI {
 
-	@PostMapping("/api/new")
-	public NewDTO createNew(@RequestBody NewDTO newDTO) {
-		return newDTO;
-	}
-	
-	@PutMapping("/api/new")
-	public NewDTO updateNew(@RequestBody NewDTO newDTO) {
-		return newDTO;
-	}
-	
-	@DeleteMapping("/api/new")
-	public void deleteNew(@RequestBody long[] ids) {
-		
-	}
+	/*
+	 * @PostMapping("/api/new") public NewDTO createNew(@RequestBody NewDTO newDTO)
+	 * { return newDTO; }
+	 * 
+	 * @PutMapping("/api/new") public NewDTO updateNew(@RequestBody NewDTO newDTO) {
+	 * return newDTO; }
+	 * 
+	 * @DeleteMapping("/api/new") public void deleteNew(@RequestBody long[] ids) {
+	 * 
+	 * }
+	 */
 }
