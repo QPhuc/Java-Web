@@ -2,8 +2,11 @@ package com.qphuc.service;
 
 import java.util.List;
 
-import com.qphuc.model.NewModel;
+import org.springframework.data.domain.Pageable;
+
+import com.qphuc.dto.NewDTO;
 
 public interface INewService {
-	List<NewModel> findAll();
+	List<NewDTO> findAll(Pageable pageable);
+	int getTotalItem();
 }
