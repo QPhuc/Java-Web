@@ -45,7 +45,7 @@
 		</a>
 	</div>
 	
-	
+	<script src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
 	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
