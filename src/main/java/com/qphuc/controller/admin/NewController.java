@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.qphuc.dto.NewDTO;
+import com.qphuc.service.ICategoryService;
 import com.qphuc.service.INewService;
 
 @Controller(value = "newControllerOfAdmin")
@@ -17,6 +18,9 @@ public class NewController {
 
 	@Autowired
 	private INewService newService;
+	
+	@Autowired
+	private ICategoryService categoryService;
 
 	@RequestMapping(value = "/quan-tri/bai-viet/danh-sach", method = RequestMethod.GET)
 	public ModelAndView showList(@RequestParam("page") int page, @RequestParam("limit") int limit) {
@@ -39,6 +43,7 @@ public class NewController {
 		if (id != null) {
 			model = newService.findById(id);
 		}
+		mav.addObject("categories", categoryService.findAll());
 		mav.addObject("model", model);
 		return mav;
 	}

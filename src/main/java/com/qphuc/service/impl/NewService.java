@@ -7,13 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.qphuc.converter.CategoryConverter;
 import com.qphuc.converter.NewConverter;
-import com.qphuc.dto.CategoryDTO;
 import com.qphuc.dto.NewDTO;
-import com.qphuc.entity.CategoryEntity;
 import com.qphuc.entity.NewEntity;
-import com.qphuc.repository.CategoryRepository;
 import com.qphuc.repository.NewRepository;
 import com.qphuc.service.INewService;
 
@@ -25,12 +21,6 @@ public class NewService implements INewService {
 	
 	@Autowired
 	private NewConverter newConverter;
-	
-	@Autowired 
-	private CategoryRepository categoryRepositogy;
-	
-	@Autowired
-	private  CategoryConverter categoryConverter;
 	
 	@Override
 	public List<NewDTO> findAll(Pageable pageable) {
@@ -59,14 +49,4 @@ public class NewService implements INewService {
 		return newConverter.toDto(entity);
 	}
 
-	@Override
-	public List<CategoryDTO> findAll() {
-		List<CategoryDTO> result = new ArrayList<>();
-		List<CategoryEntity> entities = categoryRepositogy.findAll();
-		for(CategoryEntity item : entities) {
-			CategoryDTO dto = categoryConverter.toDto(item);
-			result.add(dto);
-		}
-		return result;
-	}
 }
