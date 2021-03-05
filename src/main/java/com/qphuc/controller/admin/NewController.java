@@ -14,7 +14,7 @@ import com.qphuc.service.INewService;
 
 @Controller(value = "newControllerOfAdmin")
 public class NewController {
-	
+
 	@Autowired
 	private INewService newService;
 
@@ -24,17 +24,22 @@ public class NewController {
 		model.setPage(page);
 		model.setLimit(limit);
 		ModelAndView mav = new ModelAndView("admin/new/list");
-		Pageable pageable = new PageRequest(page - 1 , limit);
+		Pageable pageable = new PageRequest(page - 1, limit);
 		model.setListResult(newService.findAll(pageable));
 		model.setTotalItem(newService.getTotalItem());
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
 		mav.addObject("model", model);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/quan-tri/bai-viet/chinh-sua", method = RequestMethod.GET)
-	public ModelAndView editNew() {
+	public ModelAndView editNew(@RequestParam(value = "id", required = false) Long id) {
 		ModelAndView mav = new ModelAndView("admin/new/edit");
+		NewDTO model = new NewDTO();
+		if (id != null) {
+			model = newService.findById(id);
+		}
+		mav.addObject("model", model);
 		return mav;
 	}
 }
